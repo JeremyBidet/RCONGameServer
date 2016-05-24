@@ -19,6 +19,7 @@ public class ServerTileAdapter implements ListAdapter {
     private ArrayList<Server> servers;
 
     public ServerTileAdapter(Context context, ArrayList<Server> servers) {
+        this.context = context;
         this.servers = servers;
     }
 
