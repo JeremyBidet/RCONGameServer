@@ -3,7 +3,7 @@ package whyt.fr.rcongameserver.network;
 /**
  * Created by Jeremy on 24/05/2016.
  */
-public class RCONPacket {
+class RCONPacket {
 
     private static int autoinc_id = 0;
 
@@ -21,6 +21,11 @@ public class RCONPacket {
 
         this.packet_size = 4 + 4 + body.length() + 1;
         this.total_size = this.packet_size + 4;
+    }
+
+    public RCONPacket(int id, RCONType type, String body) {
+        this(type, body);
+        this.id = id;
     }
 
     public int getId() {
@@ -41,6 +46,15 @@ public class RCONPacket {
 
     public int getTotalSize() {
         return this.total_size;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public void setSize(int size) {
+        this.packet_size = size;
+        this.total_size += size;
     }
 
 }
